@@ -10,8 +10,12 @@
 
 <script>
 import Schema from 'async-validator'
+import emitter from '../../mixins/emitter';
 export default {
+  name: 'formItem',
+  componentName: 'formItem',
   inject: ['form'],
+  mixins: [emitter],
   props: {
     label: {
       type: String,
