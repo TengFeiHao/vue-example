@@ -17,11 +17,8 @@ const createExtend = (options) => {
     notice.$destroy()
   }
   document.body.appendChild(notice.$el);
+  notice.show()
   return notice;
 }
 
-export default (opts) => {
-  const comp = createExtend(opts)
-  comp.show()
-  return comp
-};
+export default createExtend;
