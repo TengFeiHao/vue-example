@@ -1,6 +1,7 @@
 import Vue from 'vue';
 
 function create(Component, props) {
+  if (Vue.prototype.$isServer) return;
   // 组件构造函数如何获取
   // 1. Vue.extend
   // 2. render

@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="formItem">
     <!-- label  -->
     <label v-if="label">{{ label }}</label>
     <slot></slot>
     <!-- 校验信息的显示 -->
-    <p v-if="error">{{ error }}</p>
+    <p class="error" v-if="error">{{ error }}</p>
   </div>
 </template>
 
@@ -60,5 +60,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  
+  .formItem {
+    margin-bottom: 20px;
+    label {
+      display: inline-block;
+      min-width: 80px;
+    }
+    .error {
+      font-size: 12px;
+      color: red;
+    }
+  }
 </style>

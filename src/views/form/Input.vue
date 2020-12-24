@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="input">
     <!-- 自定义组件双向数据绑定： :value @input -->
     <!-- v-bind="$attrs" 展开$attrs 计算属性如下类同-->
     <!-- v-on="inputListeners" 展开$listeners，此处写成一个计算属性，目的结合v-model所需要的方法合并一起被展开设置 -->
@@ -10,8 +10,8 @@
 <script>
 import emitter from '../../mixins/emitter';
 export default {
-  name: 'input',
-  componentName: 'input',
+  name: 'myInput',
+  componentName: 'myInput',
   mixins: [emitter],
   inheritAttrs: false,    // 避免设置到根元素上
   props: {
@@ -46,3 +46,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .input {
+    display: inline-block;
+    input {
+      display: inline-block;
+    }
+  }
+</style>

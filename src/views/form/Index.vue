@@ -41,11 +41,13 @@ export default {
     login() {
       this.$refs["loginForm"].validate(valid => {
         if(valid) {
-          this.$create(Notice, {
+          // extend方式的Notice
+          this.$Notice({
             title: 'success',
             message: '登录成功'
-          }).show()
+          })
         }else {
+          // render 方式的Notice
           this.$create(Notice, {
             title: 'error',
             message: '登录失败'
