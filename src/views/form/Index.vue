@@ -1,8 +1,9 @@
 <template>
   <div>
+    <!-- model rules 统一管理，统一分发 -->
     <TheForm :model="userInfo" :rules="rules" ref="loginForm">
       <FormItem label="用户名" prop="username">
-        <TheInput v-model="userInfo.username" placeholder="请输入用户名"></TheInput>
+        <TheInput @focus="focus" v-model="userInfo.username" placeholder="请输入用户名"></TheInput>
       </FormItem>
       <FormItem label="密码" prop="password">
         <TheInput type="password" v-model="userInfo.password" placeholder="请输入密码"></TheInput>
@@ -38,6 +39,9 @@ export default {
     }
   },
   methods: {
+    focus() {
+      console.log('获取焦点')
+    },
     login() {
       this.$refs["loginForm"].validate(valid => {
         if(valid) {

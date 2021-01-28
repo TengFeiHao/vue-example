@@ -32,9 +32,13 @@ export default {
     }
   },
   mounted() {
-    this.$on('validate', () => {
-      this.validate()
-    })
+    if(this.prop) {
+      this.dispatch('TheForm', 'addField', [this])
+
+      this.$on('validate', () => {
+        this.validate()
+      })
+    }
   },
   methods: {
     validate() {
@@ -55,6 +59,9 @@ export default {
         }
       })
     }
+  },
+  beforeDestroy() {
+    this.dispatch('TheForm', 'removeField', [this]);
   }
 }
 </script>

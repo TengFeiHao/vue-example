@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store'
+import router from './hrouter'
+import store from './HStore'
 import create from './assets/utils/create'
 import createExtend from './assets/utils/createExtend'
 

@@ -1,12 +1,28 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/form">封装form表单</router-link> |
+      <template v-for="(item, index) in routeData">
+        <router-link :key="index" :to="item.path">{{ item.name }}</router-link>
+        <template v-if="index < routeData.length - 1"> | </template>
+      </template>
     </div>
+    <!-- 原理？（url变页面跟着变化） -->
     <router-view/>
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      routeData: []
+    }
+  },
+  mounted() {
+    this.routeData = this.$router.$options.routes
+  }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

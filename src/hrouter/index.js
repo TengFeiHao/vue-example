@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import VueRouter from './hvue-router'
 
 // 为啥使用use 说明vueRouter 是一个vue插件，必须使用use方法注册
 // this.$router可以访问Router的实例，在main.js 中new Vue 的时候挂载了router，其实就是内部Vue.prototype.$router 进行了挂载
@@ -16,6 +16,11 @@ const routes = [
     path: '/slot',
     name: '插槽',
     component: () => import ('../views/slot/Slot')
+  },
+  {
+    path: '/vuex',
+    name: 'vuex数据管理',
+    component: () => import ('../views/vuex/Vuex')
   }
 ]
 
